@@ -1,0 +1,16 @@
+{
+  "name": "devjobs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./index"
+  },
+  "author": "Edson Felix",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "nodemon": "^3.1.3"
+  }
+}
