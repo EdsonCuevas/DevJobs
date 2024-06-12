@@ -9,13 +9,19 @@ require('dotenv').config({ path: 'variables.env' })
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
+const bodyParser = require('body-parser')
 
 const app = express()
+
+// Habilitar bodyparser
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Habilitar handlebars como view
 app.engine('handlebars',
     exphbs.engine({
-        defaultLayout: 'layout'
+        defaultLayout: 'layout',
+        helpers: require('./helpers/handlebars')
     })
 )
 app.set('view engine', 'handlebars')
