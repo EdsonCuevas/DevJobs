@@ -12,6 +12,7 @@ const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser')
 const expressValidator = require('express-validator')
 const flash = require('connect-flash')
+const passport = require('./config/passport.js')
 
 const app = express()
 
@@ -45,6 +46,10 @@ app.use(session({
         mongooseConnection: mongoose.connection
     })
 }));
+
+// Inicializar passport
+app.use(passport.initialize())
+app.use(passport.session())
 
 // Alertas y flash messages
 app.use(flash())
