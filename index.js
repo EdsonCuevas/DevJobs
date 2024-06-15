@@ -10,12 +10,17 @@ const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const bodyParser = require('body-parser')
+const expressValidator = require('express-validator')
+const flash = require('connect-flash')
 
 const app = express()
 
 // Habilitar bodyparser
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+
+// Validacion de campos
+app.use(expressValidator())
 
 // Habilitar handlebars como view
 app.engine('handlebars',
@@ -40,6 +45,17 @@ app.use(session({
         mongooseConnection: mongoose.connection
     })
 }));
+
+// Alertas y flash messages
+app.use(flash())
+
+// Crear nuestro middleware
+app.use((req, res, next) => {
+    res.locals.mensajes = req.flash()
+    next()
+})
+
+
 
 app.use('/', router())
 
