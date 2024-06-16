@@ -29,5 +29,10 @@ module.exports = {
             })
         }
         return alertas.fn().html = html
+    },
+
+    getProp: function (obj, prop) {
+        return obj[prop];
     }
+
 }

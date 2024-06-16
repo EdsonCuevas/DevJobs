@@ -1,0 +1,19 @@
+<main class="contenedor">
+    <form action="/editar-perfil" method="post" class="default-form">
+        <div class="campo">
+            <label>Nombre</label>
+            <input value="{{getProp usuario 'nombre'}}" type="text" name="nombre" placeholder="Tu Nombre" required>
+        </div>
+        <div class="campo">
+            <label>Email</label>
+            <input value="{{getProp usuario 'email'}}" type="email" name="email" placeholder="Tu Email" required>
+        </div>
+        <div class="campo">
+            <label>Contraseña</label>
+            <input type="password" name="password" placeholder="Tu Contraseña">
+        </div>
+        <div class="capo">
+            <input type="submit" class="btn btn-azul" value="Guardar Cambios">
+        </div>
+    </form>
+</main>
