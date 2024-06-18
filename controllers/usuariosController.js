@@ -111,7 +111,8 @@ exports.formEditarPerfil = (req, res) => {
         nombrePagina: 'Edita tu perfil en devJobs',
         cerrarSesion: true,
         nombre: req.user.nombre,
-        usuario: req.user
+        usuario: req.user,
+        imagen: req.user.imagen
     })
 }
 
@@ -159,6 +160,7 @@ exports.validarPerfil = (req, res, next) => {
             cerrarSesion: true,
             nombre: req.user.nombre,
             usuario: req.user,
+            imagen: req.user.imagen,
             mensajes: req.flash()
         })
     }
