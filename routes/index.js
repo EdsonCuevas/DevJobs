@@ -50,6 +50,13 @@ module.exports = () => {
         authController.verificarUsuario,
         authController.cerrarSesion
     )
+    // Reset password (emails)
+    router.get('/restablecer-password', authController.formRestablecerPassword)
+    router.post('/restablecer-password', authController.enviarToken)
+
+    // Reset password (Almacenar en la db)
+    router.get('/restablecer-password/:token', authController.restablecerPassword)
+    router.post('/restablecer-password/:token', authController.guardarPassword)
 
     // Panel de administracion
     router.get('/administracion',
@@ -79,6 +86,7 @@ module.exports = () => {
         authController.verificarUsuario,
         vacantesController.mostrarCandidatos
     )
+
 
     return router
 }
